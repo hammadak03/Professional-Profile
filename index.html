@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Professional Profile</title>
+</head>
+<body class="light-theme">
+    <div class="drawer-icon" id="drawerIcon" onclick="toggleDrawer()">☰</div>
+    <div class="profile">
+        <div class="profile-left">
+            <div class="profile-photo">
+                <center>
+                    <img id="profile-photo" src="profile.png" alt="Profile Photo">
+                    <div class="edit-icon" onclick="document.getElementById('file-input').click()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" alt="Edit Icon">
+                    </div>
+                </center>
+            </div>
+            <input type="file" id="file-input" accept="image/*" style="display: none;" 
+                onchange="updateProfilePhoto(event)">
+            <h3 class="section-title">Contact</h3>
+            <div id="contact-info">
+                <p><strong>☎ Phone:</strong> <span id="phone">+92 317 9772 255</span></p>
+                <p><strong>✉️ Email:</strong> <span id="email">hammadak350@gmail.com</span></p>
+                <p><strong>📍 Location:</strong> <span id="location">Hyderabad, Pakistan</span></p>
+            </div>
+            <h3 class="section-title">Skills</h3>
+            <div id="skills-core">
+                <p><strong>Core:</strong></p>
+                <ul>
+                    <li>Flutter Development</li>
+                    <li>Command on Java, C++</li>
+                    <li>Version Control</li>
+                    <li>MySQL</li>
+                    <li>Frontend Web</li>
+                </ul>
+            </div>
+            <div id="skills-basic">
+                <p><strong>Basic:</strong></p>
+                <ul>
+                    <li>Critical Thinking</li>
+                    <li>Team Player</li>
+                    <li>Problem-Solving</li>
+                    <li>Computer Literacy</li>
+                    <li>Communication</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="profile-right">
+            <h2 class="profile-title">MOBILE APPLICATION DEVELOPER</h2>
+            <h2 class="profile-name">HAMMAD AHMED</h2>
+            <h3 id="about-title" class="section-title">ABOUT</h3>
+            <p id="about-text">I am a motivated student studying Computer Systems Engineering
+                 at Mehran University of Engineering and Technology. Proficient in Flutter development
+                  and experienced in creating projects using Java and C++.</p>
+            
+            <h3 class="section-title">EXPERIENCE</h3>
+            <p><strong>Mobile App Developer - Intern</strong> | MUET Alumni Development Cell 
+                | Apr 2024 - Jun 2024</p>
+            <ul>
+                <li>Designed app features for content distribution.</li>
+                <li>Integrated Firebase for real-time analytics.</li>
+                <li>Collaborated with content development team.</li>
+            </ul>
+            <p><strong>Intern</strong> | Archroma Ltd. | Jan 2024</p>
+            <ul>
+                <li>Engaged in dynamic learning at a global specialty supplier.</li>
+                <li>Explored safety protocols, IT infrastructure, and warehouse operations.</li>
+            </ul>
+
+            <h3 class="section-title">PROJECTS</h3>
+            <div id="projects">
+                <p><strong>Car Rental Management System:</strong> Designed using C++ with GUI using NetBeans.
+                     Backend powered by MySQL for database management.</p>
+                <p><strong>Quizzer:</strong> Quiz app developed using Flutter framework.</p>
+                <p><strong>MUET Admin:</strong> Admin app built in Flutter. Facilitates data updates 
+                    on the main app via Firebase.</p>
+            </div>
+
+            <h3 class="section-title">EDUCATION</h3>
+            <p><strong>2021 - 2025</strong> | Mehran University of Engineering and Technology
+                <br>Bachelor of Computer Systems Engineering - CGPA(3.60/4.00)</p>
+        </div>
+    </div>
+    <div class="theme-icon" onclick="toggleTheme()">🌙</div>
+    <script>
+        let isDarkMode = false;
+        function toggleDrawer() {
+            document.querySelector('.profile').classList.toggle('show-left');
+        }
+        function toggleTheme() {
+            const body = document.body;
+            isDarkMode = !isDarkMode;
+            body.classList.toggle('dark-theme', isDarkMode);
+        }
+        function updateProfilePhoto(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const profilePhoto = document.getElementById('profile-photo');
+                profilePhoto.src = e.target.result;
+            };
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

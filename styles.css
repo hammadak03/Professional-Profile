@@ -1,0 +1,185 @@
+:root {
+    --background-light: #f0f2f5;
+    --background-dark: #2e2e3f;
+    --text-light: #333;
+    --text-dark: #f5f5f5;
+    --accent-color: #333;
+    --profile-left-light: #e6f2ff;
+    --profile-left-dark: #494949;
+    --profile-right-light: #ffffff;
+    --profile-right-dark: #2b2929;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+body p, body li {
+    font-size: 1.3rem;
+}
+
+.light-theme {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+.dark-theme {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.profile {
+    max-width: auto;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.profile-left {
+    width: 35%;
+    padding: 20px;
+    background-color: var(--profile-left-light);
+    transition: background-color 0.3s, color 0.3s;
+    text-align: left;
+}
+
+.profile-left img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.profile-left h2, .profile-left p {
+    margin: 5px 0;
+}
+
+.profile-name {
+    color: #3036de;
+    font-size: 3em;
+    margin: 0px;
+}
+
+.profile-title {
+    font-size: 1.1em;
+    margin: 10px;
+    letter-spacing: 3px;
+}
+
+.profile-right {
+    width: 65%;
+    padding: 20px;
+    background-color: var(--profile-right-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.section-title {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-top: 10px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+#contact-info {
+    margin-left: 10px;
+}
+
+.theme-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Dark Theme Adjustments */
+.dark-theme .profile-left {
+    background-color: var(--profile-left-dark);
+    color: var(--text-dark);
+}
+
+.dark-theme .profile-right {
+    background-color: var(--profile-right-dark);
+    color: var(--text-dark);
+}
+
+.dark-theme .section-title {
+    color: #ccc;
+}
+
+.dark-theme .theme-icon {
+    color: #f5f5f5;
+}
+
+/* Drawer Icon */
+.drawer-icon {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.profile-left {
+    display: block;
+}
+
+/* Edit icon */
+.edit-icon {
+    position: relative;
+    top: -15px;
+    left: 170px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.edit-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+    }
+
+    .profile-left {
+        display: none;
+        width: 100%;
+    }
+
+    .profile-right {
+        width: 100%;
+    }
+
+    .drawer-icon {
+        display: block;
+    }
+
+    .profile.show-left .profile-left {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .profile.show-left .profile-right {
+        display: none;
+    }
+}
